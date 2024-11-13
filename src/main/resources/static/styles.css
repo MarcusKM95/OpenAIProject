@@ -190,4 +190,105 @@ footer {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+
 }
+/* src/main/resources/static/styles.css */
+
+/* Existing styles... */
+
+.result .articles {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.result .articles h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.result .articles ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.result .articles ul li {
+    margin-bottom: 5px;
+}
+
+.result .articles ul li a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.result .articles ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .result .articles h3 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .result .articles ul li a {
+    color: #9b59b6;
+}
+
+body.dark-mode .result .articles ul li a:hover {
+    text-decoration: underline;
+}
+.result .articles {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.result .articles h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.result .articles ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.result .articles ul li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.result .articles ul li a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.result .articles ul li a:hover {
+    text-decoration: underline;
+}
+
+.article-author,
+.article-source {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0 0 0;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .result .articles h3 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .result .articles ul li a {
+    color: #9b59b6;
+}
+
+body.dark-mode .result .articles ul li a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode .article-author,
+body.dark-mode .article-source {
+    color: #bdc3c7;
+}
+
