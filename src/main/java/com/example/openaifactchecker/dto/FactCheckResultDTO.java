@@ -2,8 +2,13 @@
 
 package com.example.openaifactchecker.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 public class FactCheckResultDTO {
     private String result;
     private List<ArticleDTO> articles;
@@ -15,26 +20,6 @@ public class FactCheckResultDTO {
         this.result = result;
         this.articles = articles;
     }
-
-    // Getters and Setters
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-
-    public List<ArticleDTO> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(List<ArticleDTO> articles) {
-        this.articles = articles;
-    }
-
-
 
     // toString (Optional)
     @Override

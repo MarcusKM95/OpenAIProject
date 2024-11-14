@@ -1,9 +1,7 @@
-// src/main/java/com/example/openaifactchecker/controller/FactCheckerController.java
-
 package com.example.openaifactchecker.controller;
 
 import com.example.openaifactchecker.dto.FactCheckResultDTO;
-import com.example.openaifactchecker.service.OpenAIService;
+import com.example.openaifactchecker.service.FactCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +14,11 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8080") // Adjust as needed
 public class FactCheckerController {
 
-    private final OpenAIService openAIService;
+    private final FactCheckService factCheckService;
 
     @Autowired
-    public FactCheckerController(OpenAIService openAIService) {
-        this.openAIService = openAIService;
+    public FactCheckerController(FactCheckService factCheckService) {
+        this.factCheckService = factCheckService;
     }
 
     @PostMapping(value = "/check", consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -28,6 +26,6 @@ public class FactCheckerController {
         if (statement == null || statement.trim().isEmpty()) {
             return Mono.just(new FactCheckResultDTO("Error: Statement cannot be empty.", List.of()));
         }
-        return openAIService.checkFact(statement);
+        return factCheckService.checkFact(statement);
     }
 }

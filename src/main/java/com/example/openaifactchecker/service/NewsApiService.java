@@ -1,5 +1,3 @@
-// src/main/java/com/example/openaifactchecker/service/NewsApiService.java
-
 package com.example.openaifactchecker.service;
 
 import com.example.openaifactchecker.config.NewsApiConfig;
