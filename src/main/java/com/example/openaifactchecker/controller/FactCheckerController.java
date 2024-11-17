@@ -24,7 +24,7 @@ public class FactCheckerController {
     @PostMapping(value = "/check", consumes = MediaType.TEXT_PLAIN_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<FactCheckResultDTO> checkFact(@RequestBody String statement) {
         if (statement == null || statement.trim().isEmpty()) {
-            return Mono.just(new FactCheckResultDTO("Error: Statement cannot be empty.", List.of()));
+            return Mono.just(new FactCheckResultDTO("Error: Statement cannot be empty.", "", List.of()));
         }
         return factCheckService.checkFact(statement);
     }

@@ -21,7 +21,7 @@ public class FactCheckMapper {
      * @param responseContent The raw response content from OpenAI.
      * @return A FactCheckResultDTO object containing the fact check result and supporting articles.
      */
-    public static FactCheckResultDTO toFactCheckResultDTO(String responseContent) {
+    public static FactCheckResultDTO toFactCheckResultDTO(String responseContent, String claim) {
         try {
             // Parse the response string into a JsonNode
             JsonNode rootNode = objectMapper.readTree(responseContent);
@@ -46,12 +46,12 @@ public class FactCheckMapper {
             // Combine result and explanation if explanation is present
             String combinedResult = explanation.isEmpty() ? result : result + " " + explanation;
 
-            return new FactCheckResultDTO(combinedResult, articles);
+            return new FactCheckResultDTO(claim, combinedResult, articles);
 
         } catch (JsonProcessingException e) {
             // Handle parsing exceptions
             e.printStackTrace();
-            return new FactCheckResultDTO("Unable to parse the fact check result.", List.of());
+            return new FactCheckResultDTO(claim, "Unable to parse the fact check result.", List.of());
         }
     }
 

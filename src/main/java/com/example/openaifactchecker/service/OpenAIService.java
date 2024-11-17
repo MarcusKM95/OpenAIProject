@@ -30,24 +30,24 @@ public class OpenAIService {
                 .build();
     }
 
-    public Mono<FactCheckResultDTO> sendRequestToOpenAI(String prompt) {
+    public Mono<FactCheckResultDTO> sendRequestToOpenAI(String prompt, String claim) {
         // Prepare the request body
         var requestBody = Map.of(
                 "model", "gpt-4",
                 "messages", List.of(Map.of("role", "system", "content", "You are a fact-checking assistant."),
                         Map.of("role", "user", "content", prompt)),
                 "max_tokens", 500,
-                "temperature", 0.0);
+                "temperature", 0.0); // det er hvor advanceret et svar chat skal komme med
 
         return webClient.post()
-                .uri("/chat/completions")
+                .uri("/chat/completions")// identifier for chatgpt
                 .body(BodyInserters.fromValue(requestBody))
                 .retrieve()
                 .bodyToMono(Map.class)
                 .map(response -> {
                     // Process OpenAI response
                     String content = ((Map<String, Object>) ((List<Map<String, Object>>) response.get("choices")).get(0).get("message")).get("content").toString().trim();
-                    return FactCheckMapper.toFactCheckResultDTO(content);
+                    return FactCheckMapper.toFactCheckResultDTO(content, claim);
                 });
     }
 }

@@ -59,6 +59,8 @@ document.getElementById('checkBtn').addEventListener('click', () => {
  * @param {string} type - The type of message ('fake-news', 'not-fake-news', 'error', 'loading').
  * @param {Array} articles - An array of supporting articles.
  */
+
+
 function displayResult(message, type, articles) {
     const resultDiv = document.getElementById('result');
     const resultText = document.getElementById('result-text');
@@ -151,3 +153,4 @@ themeToggle.addEventListener('click', () => {
         themeToggle.textContent = '🌙';
     }
 });
+

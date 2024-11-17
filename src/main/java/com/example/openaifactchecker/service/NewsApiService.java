@@ -40,7 +40,7 @@ public class NewsApiService {
      */
     public Mono<List<ArticleDTO>> fetchArticles(String query) {
         return webClient.get()
-                .uri(uriBuilder -> uriBuilder
+                .uri(uriBuilder -> uriBuilder //kig nærmere om uriBuilder
                         .path("/everything")
                         .queryParam("q", query)
                         .queryParam("sortBy", "relevancy")

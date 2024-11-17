@@ -10,22 +10,24 @@ import java.util.List;
 @Getter
 @Setter
 public class FactCheckResultDTO {
+    private String claim; // New field
     private String result;
     private List<ArticleDTO> articles;
 
-    // Constructors
-    public FactCheckResultDTO() {}
-
-    public FactCheckResultDTO(String result, List<ArticleDTO> articles) {
+    public FactCheckResultDTO(String claim, String result, List<ArticleDTO> articles) {
+        this.claim = claim;
         this.result = result;
         this.articles = articles;
     }
 
+
     // toString (Optional)
+
     @Override
     public String toString() {
         return "FactCheckResultDTO{" +
-                "result='" + result + '\'' +
+                "claim='" + claim + '\'' +
+                ", result='" + result + '\'' +
                 ", articles=" + articles +
                 '}';
     }
